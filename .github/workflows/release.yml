@@ -1,5 +1,8 @@
 name: Release
 
+# Builds the Pediment child-theme distributable zip and publishes a GitHub Release.
+# Triggered manually via the Actions tab (workflow_dispatch).
+
 on:
   workflow_dispatch:
     inputs:
