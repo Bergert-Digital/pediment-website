@@ -1,14 +1,6 @@
 # pediment-child-theme
 
-The agency starting point — a lean child theme of [Pediment](https://github.com/Bergert-Digital/pediment), published as a **GitHub template**. Click **"Use this template"** to create a fresh, independent repo for a client site (clean history, no fork relationship), then rename it and add your blocks and `theme.json` overrides. It is **self-contained**: you develop, build, and test it without checking out the parent theme — wp-env pulls the parent and the optional `pediment-ai` plugin from their published release zips.
-
-## Create a new client site
-
-1. Click **Use this template → Create a new repository** on GitHub.
-2. Clone your new repo and run the rename checklist below.
-3. `composer install && npm install`, then `npm run env:setup` to boot a local WordPress with the Pediment parent + plugin pulled from release zips.
-
-You never need the parent theme repo locally — only its published releases, which wp-env downloads automatically.
+The agency starting point. A child theme of [Pediment](https://github.com/bergert/pediment). Fork or download as a zip, rename it, add your blocks and `theme.json` overrides, and push to your own git for per-client install.
 
 ## Install order on a fresh WordPress
 
@@ -103,7 +95,7 @@ These commands only toggle `themes`/`plugins` in `.wp-env.override.json` (gitign
 
 ### Keeping `.wp-env.json` current
 
-Run the dependency-currency check manually any time to verify `.wp-env.json` still pins the latest upstream tags:
+A scheduled workflow ([`.github/workflows/check-wpenv-deps.yml`](.github/workflows/check-wpenv-deps.yml)) runs every Monday, checks the upstream repos for newer tags, and opens a PR bumping the refs when they fall behind. You can also run the check manually any time:
 
 ```bash
 npm run check:wpenv-deps

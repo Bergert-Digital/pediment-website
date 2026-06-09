@@ -3,7 +3,7 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [main, development]
 
 jobs:
   phpcs:
@@ -31,12 +31,22 @@ jobs:
 
   phpunit:
     runs-on: ubuntu-latest
-    # Checkout to a FIXED directory so the wp-env theme slug is always
-    # "pediment-child-theme" — independent of the instance repo's name.
     steps:
       - uses: actions/checkout@v4
         with:
           path: pediment-child-theme
+      - uses: actions/checkout@v4
+        with:
+          repository: Bergert-Digital/pediment
+          ref: development
+          token: ${{ secrets.STARTER_THEME_PAT }}
+          path: pediment
+      - uses: actions/checkout@v4
+        with:
+          repository: Bergert-Digital/pediment-ai
+          ref: development
+          token: ${{ secrets.STARTER_THEME_PAT }}
+          path: pediment-ai
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -46,13 +56,21 @@ jobs:
         with:
           php-version: '8.1'
           tools: composer
-      - name: Install deps + build
-        run: cd pediment-child-theme && composer install --prefer-dist --no-progress && npm ci && npm run build
-      # Publish mode: .wp-env.json pulls parent + plugin from public release
-      # zips; no .wp-env.override.json in CI. Fully self-contained — no
-      # cross-repo checkout, no PAT.
+      - name: Build parent theme blocks
+        run: cd pediment && npm ci && npm run build
+      - name: Build plugin
+        run: cd pediment-ai && composer install --prefer-dist --no-progress && npm ci && npm run build
+      - name: Install child deps
+        run: cd pediment-child-theme && composer install --prefer-dist --no-progress && npm ci
+      - name: Point wp-env at locally-checked-out parent + plugin
+        run: |
+          cat > pediment-child-theme/.wp-env.override.json <<'JSON'
+          { "themes": [".", "../pediment"], "plugins": ["../pediment-ai"] }
+          JSON
       - name: Start wp-env
         run: cd pediment-child-theme && npm run env:start
+      - name: Build child blocks
+        run: cd pediment-child-theme && npm run build
       - name: Run PHPUnit
         run: cd pediment-child-theme && npx wp-env run tests-wordpress --env-cwd=wp-content/themes/pediment-child-theme vendor/bin/phpunit
       - if: always()
@@ -64,6 +82,18 @@ jobs:
       - uses: actions/checkout@v4
         with:
           path: pediment-child-theme
+      - uses: actions/checkout@v4
+        with:
+          repository: Bergert-Digital/pediment
+          ref: development
+          token: ${{ secrets.STARTER_THEME_PAT }}
+          path: pediment
+      - uses: actions/checkout@v4
+        with:
+          repository: Bergert-Digital/pediment-ai
+          ref: development
+          token: ${{ secrets.STARTER_THEME_PAT }}
+          path: pediment-ai
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -73,13 +103,18 @@ jobs:
         with:
           php-version: '8.1'
           tools: composer
-      - name: Install deps + build
-        run: cd pediment-child-theme && composer install --prefer-dist --no-progress && npm ci && npm run build
+      - run: cd pediment && npm ci && npm run build
+      - run: cd pediment-ai && composer install --prefer-dist --no-progress && npm ci && npm run build
+      - run: cd pediment-child-theme && npm ci
       - run: cd pediment-child-theme && npx playwright install --with-deps chromium
-      - name: Start wp-env
-        run: cd pediment-child-theme && npm run env:start
-      - name: Activate child theme
-        run: cd pediment-child-theme && npx wp-env run cli wp theme activate pediment-child-theme
+      - name: Point wp-env at locally-checked-out parent + plugin
+        run: |
+          cat > pediment-child-theme/.wp-env.override.json <<'JSON'
+          { "themes": [".", "../pediment"], "plugins": ["../pediment-ai"] }
+          JSON
+      - run: cd pediment-child-theme && npm run env:start
+      - run: cd pediment-child-theme && npm run build
+      - run: cd pediment-child-theme && npx wp-env run cli wp theme activate pediment-child-theme
       - run: cd pediment-child-theme && npm run e2e
       - if: always()
         run: cd pediment-child-theme && npm run env:stop
