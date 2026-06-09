@@ -68,12 +68,13 @@ template repo to current content is a near-fast-forward push, not a merge.
   `phpunit.xml.dist`, `.distignore`, `.gitignore`.
 - wp-env: `.wp-env.json` (parent + plugin via **public release-zip URLs** →
   self-contained), `.wp-env.override.json` handling, `tools/wp-env-mode.mjs`,
-  `tools/setup-env.mjs`, `tools/check-wpenv-deps.mjs`.
+  `tools/setup-env.mjs`, `tools/check-wpenv-deps.mjs` (kept as the **on-demand**
+  `npm run check:wpenv-deps` command — self-contained, needs no PAT).
 - Tests: `tests/phpunit/*` (Smoke, AutoLoader, ThemeJsonInheritsPediment,
   bootstrap), `tests/e2e/smoke.spec.ts`, **trimmed** `tests/e2e/utils.ts`.
 - Docs: `README.md` (rewritten for template use), `AGENTS.md`, `docs/STYLING.md`.
-- Workflows: `release.yml` (already self-contained), `check-wpenv-deps.yml`
-  (optional), and a **new self-contained `ci.yml`** (see below).
+- Workflows: `release.yml` (already self-contained) and a **new self-contained
+  `ci.yml`** (see below).
 
 ### Stripped from template (remain only in the `pediment-website` demo)
 - `docs/superpowers/plans/*` (2 files) + `docs/superpowers/specs/*` (1 file) —
@@ -84,6 +85,11 @@ template repo to current content is a near-fast-forward push, not a merge.
 - AI-specific helpers in `tests/e2e/utils.ts` (`openAIChatPanel`,
   `waitForChatTurnComplete`, `publishAndGetPermalink`, and `openNewPage` if used
   only by the AI flow) — trim to what `smoke.spec.ts` needs.
+- `.github/workflows/check-wpenv-deps.yml` — the weekly cron + auto-PR bump.
+  Bound to `STARTER_THEME_PAT` (breaks for third parties) and is more machinery
+  than a lean starter needs. Stays only in `pediment-website` (the dev repo,
+  where the PAT exists). The underlying `tools/check-wpenv-deps.mjs` script is
+  **kept** in the template as an on-demand command.
 
 ## Self-contained CI (the key technical change)
 
@@ -117,15 +123,17 @@ child against **unreleased** parent/plugin `development` is the legitimate goal.
 - **Re-cut `v0.1.0` on `pediment-child-theme`** once content + `release.yml`
   land there. (Registering `workflow_dispatch` requires the touch-the-file
   re-index step we already validated.)
-- **Delete the `v0.1.0` release + tag on `pediment-website`** — a demo site
-  should not publish a distributable theme zip.
+- **`v0.1.0` release + tag on `pediment-website` — DELETED** (2026-06-09). A demo
+  site should not publish a distributable theme zip.
 
 ## Demo-site cleanup (`pediment-website`)
 
 - Fix the description (drop "Fork of pediment-child-theme").
 - Resolve the `upstream` / `DISABLE_NO_PUSH` remote tangle; set
   `gh repo set-default Bergert-Digital/pediment-website`.
-- Keep its cross-repo/PAT CI and dev docs. Drop `release.yml` (not distributed).
+- Keep its cross-repo/PAT CI, the `check-wpenv-deps.yml` cron, and dev docs.
+  Drop `release.yml` (not distributed).
+- `v0.1.0` release/tag already removed (see Releases).
 
 ## Migration sequence (safe order)
 
@@ -141,8 +149,8 @@ child against **unreleased** parent/plugin `development` is the legitimate goal.
    dispatch `release.yml`, re-cut `v0.1.0`.
 5. **Validate self-containment**: "Use this template" → fresh repo → `npm ci` +
    `npm run build` + CI green with **no parent repo present and no PAT**.
-6. **Clean up the demo**: `pediment-website` description, remotes, delete its
-   `v0.1.0` release/tag, drop `release.yml`.
+6. **Clean up the demo**: `pediment-website` description, remotes, drop
+   `release.yml`. (Its `v0.1.0` release/tag is already deleted.)
 
 ## Risks / open questions
 
