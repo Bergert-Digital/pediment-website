@@ -1,0 +1,44 @@
+name: Release Please
+
+# Opens (and keeps updating) a Release PR on every push to main, computing
+# the next semver from conventional-commit prefixes (feat → minor, fix →
+# patch, BREAKING CHANGE / feat! → major; `bump-major-pre-major` is on, so a
+# breaking change from 0.x goes to 1.0.0 rather than 0.x+1). Merging the
+# Release PR creates the GitHub Release and its tag; the chained job then
+# builds pediment-website.zip and attaches it.
+#
+# The zip job is chained here rather than left to release.yml's own
+# `push: tags` trigger, because release-please creates the tag with
+# GITHUB_TOKEN and GITHUB_TOKEN-issued events do not trigger other workflows
+# (GitHub's recursive-workflow protection). release.yml keeps that trigger
+# for the manual `git push --tags` route.
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
+    steps:
+      - id: release
+        uses: googleapis/release-please-action@v4
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+  attach-zip:
+    needs: release-please
+    if: ${{ needs.release-please.outputs.release_created == 'true' }}
+    permissions:
+      contents: write
+    uses: Bergert-Digital/pediment/.github/workflows/client-release.yml@main
+    with:
+      tag: ${{ needs.release-please.outputs.tag_name }}
