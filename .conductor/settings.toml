@@ -1,0 +1,26 @@
+"$schema" = "https://conductor.build/schemas/settings.repo.schema.json"
+
+[scripts]
+# JS deps only — the plugin-based theme has no composer stack and no build
+# step. No Docker here, so creating a workspace never spins up wp-env.
+setup = "npm install"
+
+# wp-env uses its default ports 8888/8889 (the shared client CI curls 8888)
+# so only one workspace's environment can run at a time.
+run_mode = "nonconcurrent"
+
+# Stop this workspace's containers on archive; `|| true` so a not-running
+# env never blocks archival. Avoids `wp-env destroy` (interactive).
+archive = "npm run env:stop || true"
+
+# Boot wp-env (activates the theme + pediment-plugin, sets permalinks and
+# the site title), apply the seed manifest (idempotent: existing pages are
+# protected, missing structure is created), then hold the foreground by
+# tailing WordPress's debug.log — PHP notices surface here live. Stopping
+# the run leaves the containers serving http://localhost:8888; archive (or
+# `npm run env:stop`) shuts them down.
+[scripts.run.wp]
+available_in = [ "local" ]
+command = "npm run env:start && npm run seed && npx wp-env run cli bash -c 'touch wp-content/debug.log && exec tail -f wp-content/debug.log'"
+default = true
+icon = "play"

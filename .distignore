@@ -1,8 +1,0 @@
-.git
-.github
-.distignore
-.wp-env.json
-node_modules
-test-results
-playwright-report
-vendor

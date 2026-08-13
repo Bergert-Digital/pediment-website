@@ -2,24 +2,20 @@
   "name": "pediment-website",
   "version": "0.1.0",
   "private": true,
+  "description": "Demo and showcase site for the Pediment site engine.",
+  "pediment": {
+    "template": "3.3.0",
+    "plugin": "3.3.0"
+  },
   "scripts": {
-    "start": "wp-scripts start --webpack-src-dir=src/blocks --output-path=build/blocks",
-    "build": "wp-scripts build --webpack-src-dir=src/blocks --output-path=build/blocks",
-    "lint:js": "wp-scripts lint-js src/",
-    "e2e": "playwright test",
-    "env:start": "wp-env start",
-    "env:setup": "node tools/setup-env.mjs",
+    "env:start": "wp-env start && wp-env run cli wp theme activate pediment-website && wp-env run cli wp plugin activate pediment-plugin && wp-env run cli wp rewrite structure '/%postname%/' --hard && wp-env run cli wp option update blogname 'Pediment'",
     "env:stop": "wp-env stop",
-    "env:dev": "node tools/wp-env-mode.mjs dev",
-    "env:publish": "node tools/wp-env-mode.mjs publish",
-    "env:mode": "node tools/wp-env-mode.mjs status",
-    "check:wpenv-deps": "node tools/check-wpenv-deps.mjs"
+    "languages": "wp-env run cli wp pediment languages",
+    "seed:plan": "wp-env run cli wp pediment seed --dry-run",
+    "seed": "wp-env run cli wp pediment seed",
+    "adopt": "wp-env run cli wp pediment adopt"
   },
   "devDependencies": {
-    "@babel/runtime": "^7.29.2",
-    "@playwright/test": "^1.45.0",
-    "@wordpress/env": "^10.0.0",
-    "@wordpress/scripts": "^28.0.0",
-    "typescript": "^5.4.0"
+    "@wordpress/env": "^10.0.0"
   }
 }
