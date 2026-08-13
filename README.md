@@ -8,7 +8,7 @@ holds only what is specific to Pediment Website: brand tokens, page content, and
 
 ```bash
 npm install
-npm run env:start     # http://localhost:8890
+npm run env:start     # http://localhost:8888
 npm run seed:plan     # see what a seed would change
 npm run seed
 ```

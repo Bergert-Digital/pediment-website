@@ -5,7 +5,7 @@
 # step. No Docker here, so creating a workspace never spins up wp-env.
 setup = "npm install"
 
-# wp-env pins ports 8890/8891 and container names derive from the config,
+# wp-env uses its default ports 8888/8889 (the shared client CI curls 8888)
 # so only one workspace's environment can run at a time.
 run_mode = "nonconcurrent"
 
@@ -17,7 +17,7 @@ archive = "npm run env:stop || true"
 # the site title), apply the seed manifest (idempotent: existing pages are
 # protected, missing structure is created), then hold the foreground by
 # tailing WordPress's debug.log — PHP notices surface here live. Stopping
-# the run leaves the containers serving http://localhost:8890; archive (or
+# the run leaves the containers serving http://localhost:8888; archive (or
 # `npm run env:stop`) shuts them down.
 [scripts.run.wp]
 available_in = [ "local" ]

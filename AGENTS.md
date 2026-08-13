@@ -24,4 +24,4 @@ npm run seed:plan
 npm run seed
 ```
 
-Then load http://localhost:8890 and check the pages you changed at 375px, 768px and 1440px.
+Then load http://localhost:8888 and check the pages you changed at 375px, 768px and 1440px.
