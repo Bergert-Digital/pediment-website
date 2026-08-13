@@ -1,6 +1,0 @@
-{
-  "extends": "@wordpress/scripts/tsconfig.json",
-  "compilerOptions": { "jsx": "react-jsx", "noEmit": true },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["node_modules", "build"]
-}
