@@ -33,6 +33,10 @@ jobs:
         with:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
+          # Without this, the action targets the repository's DEFAULT branch
+          # (development here) and opens the Release PR there, where merging
+          # it would never tag — this workflow only runs on pushes to main.
+          target-branch: main
 
   attach-zip:
     needs: release-please
