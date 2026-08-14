@@ -14,7 +14,7 @@
 <div class="wp-block-group alignwide">
 <!-- wp:group {"className":"brand","layout":{"type":"flex","flexWrap":"nowrap"}} -->
 <div class="wp-block-group brand">
-<!-- wp:site-title {"level":0,"style":{"typography":{"fontWeight":"700"}}} /-->
+<!-- wp:site-logo {"width":150,"shouldSyncIcon":false} /-->
 </div>
 <!-- /wp:group -->
 <!-- wp:navigation {"overlayMenu":"mobile","layout":{"type":"flex","orientation":"horizontal","flexWrap":"nowrap"},"style":{"spacing":{"blockGap":"var:preset|spacing|30"},"typography":{"fontWeight":"600"}}} /-->

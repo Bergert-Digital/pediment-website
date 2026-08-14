@@ -16,6 +16,10 @@ return array(
 		'features' => array( 'title' => 'Features', 'pattern' => 'pediment-website/features' ),
 		'contact' => array( 'title' => 'Contact', 'pattern' => 'pediment-website/contact' ),
 	),
+	'media' => array(
+		'logo' => array( 'file' => 'seed/media/pediment-logo.png', 'title' => 'Pediment logo' ),
+	),
+	'site' => array( 'logo' => 'logo' ),
 	'navs' => array(
 		'primary' => array(
 			'title' => 'Header Navigation',
