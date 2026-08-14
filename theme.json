@@ -1,5 +1,8 @@
 {
   "$schema": "https://schemas.wp.org/trunk/theme.json",
   "version": 2,
-  "settings": {}
+  "settings": {},
+  "styles": {
+    "css": "header.site-header.site-header{backdrop-filter:none;-webkit-backdrop-filter:none}"
+  }
 }
