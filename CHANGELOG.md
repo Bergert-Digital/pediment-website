@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/Bergert-Digital/pediment-website/compare/v1.1.0...v1.2.0) (2026-08-15)
+
+
+### Features
+
+* **updates:** add GitHub-release auto-updates to the theme ([9a63c00](https://github.com/Bergert-Digital/pediment-website/commit/9a63c0048d3d06e66f227909a7f5ccac83f788e8))
+* **updates:** GitHub-release auto-updates for the theme ([b84870b](https://github.com/Bergert-Digital/pediment-website/commit/b84870b0ba2409683555fb65f63e351868e13968))
+
 ## [1.1.0](https://github.com/Bergert-Digital/pediment-website/compare/v1.0.0...v1.1.0) (2026-08-14)
 
 
