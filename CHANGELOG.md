@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.1](https://github.com/Bergert-Digital/pediment-website/compare/v1.2.0...v1.2.1) (2026-08-16)
+
+
+### Bug Fixes
+
+* **theme:** add menu hover colour and improve footer ([3152c52](https://github.com/Bergert-Digital/pediment-website/commit/3152c5256951968126c58e88e2f100e85fd5902b))
+* **theme:** menu hover colour and footer improvements ([e7f1df0](https://github.com/Bergert-Digital/pediment-website/commit/e7f1df0fde3f4b8180139d13c47b9b06e1d766cc))
+* **theme:** menu hover colour and footer improvements ([9300ce7](https://github.com/Bergert-Digital/pediment-website/commit/9300ce76f4a5a297a8bbae8d13d5e01a2616802c))
+
 ## [1.2.0](https://github.com/Bergert-Digital/pediment-website/compare/v1.1.0...v1.2.0) (2026-08-15)
 
 
