@@ -3,6 +3,6 @@
   "version": 2,
   "settings": {},
   "styles": {
-    "css": "header.site-header.site-header{backdrop-filter:none;-webkit-backdrop-filter:none}"
+    "css": "header.site-header.site-header{backdrop-filter:none;-webkit-backdrop-filter:none}.wp-block-navigation a.wp-block-navigation-item__content.wp-block-navigation-item__content:hover,.wp-block-navigation a.wp-block-navigation-item__content.wp-block-navigation-item__content:focus-visible{color:var(--wp--preset--color--accent)}"
   }
 }
