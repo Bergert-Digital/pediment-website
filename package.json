@@ -4,11 +4,11 @@
   "private": true,
   "description": "Demo and showcase site for the Pediment site engine.",
   "pediment": {
-    "template": "3.3.0",
-    "plugin": "3.3.0"
+    "template": "4.3.0",
+    "plugin": "4.3.0"
   },
   "scripts": {
-    "env:start": "wp-env start && wp-env run cli wp theme activate pediment-website && wp-env run cli wp plugin activate pediment-plugin && wp-env run cli wp rewrite structure '/%postname%/' --hard && wp-env run cli wp option update blogname 'Pediment'",
+    "env:start": "wp-env start && wp-env run cli wp theme activate pediment-website && wp-env run cli wp plugin activate pediment-plugin mcp-adapter && wp-env run cli wp rewrite structure '/%postname%/' --hard && wp-env run cli wp option update blogname 'Pediment'",
     "env:stop": "wp-env stop",
     "languages": "wp-env run cli wp pediment languages",
     "seed:plan": "wp-env run cli wp pediment seed --dry-run",
