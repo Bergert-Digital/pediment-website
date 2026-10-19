@@ -18,7 +18,7 @@
 <!-- /wp:paragraph --></section>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"full","className":"starter-band is-style-band-surface","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"align":"full","className":"starter-band is-style-band-surface","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"},"metadata":{"name":"Engine band"}} -->
 <div class="wp-block-group alignfull starter-band is-style-band-surface is-layout-constrained wp-block-group-is-layout-constrained" style="margin-top:0;margin-bottom:0">
 <!-- wp:group {"align":"wide","className":"pediment-section-head","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained","justifyContent":"left"},"metadata":{"name":"Section head"}} -->
 <div class="wp-block-group alignwide pediment-section-head" style="margin-bottom:var(--wp--preset--spacing--60)"><!-- wp:paragraph {"className":"is-style-eyebrow"} -->
@@ -38,11 +38,11 @@
 <div class="wp-block-group is-style-card"><!-- wp:pediment/icon {"icon":"cube","className":"is-style-tile"} /-->
 
 <!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">24 Gutenberg blocks</h3>
+<h3 class="wp-block-heading">Design layer</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Heroes, feature grids, stats, steps, FAQs, testimonials, sliders, forms and more — server-rendered, sanitized, and composable in the editor.</p>
+<p>Pages use core blocks with named styles — cards, panels, stats, steps, accordions. The look lives in the plugin, so page content carries no design values.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -98,18 +98,18 @@
 <div class="wp-block-group is-style-card"><!-- wp:pediment/icon {"icon":"sparkle","className":"is-style-tile"} /-->
 
 <!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">AI-assisted authoring</h3>
+<h3 class="wp-block-heading">MCP tools for AI agents</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>The AI editor composes pages from the registered block schemas, producing real block markup you can keep editing by hand.</p>
+<p>Nine MCP tools let AI agents read the design vocabulary and build pages. The plugin rejects any write that breaks a content or design rule.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></section>
 <!-- /wp:group -->
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"full","className":"starter-band is-style-band-elevated","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"align":"full","className":"starter-band is-style-band-elevated","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"},"metadata":{"name":"Workflow band"}} -->
 <div class="wp-block-group alignfull starter-band is-style-band-elevated is-layout-constrained wp-block-group-is-layout-constrained" style="margin-top:0;margin-bottom:0">
 <!-- wp:group {"align":"wide","className":"pediment-section-head","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained","justifyContent":"left"},"metadata":{"name":"Section head"}} -->
 <div class="wp-block-group alignwide pediment-section-head" style="margin-bottom:var(--wp--preset--spacing--60)"><!-- wp:paragraph {"className":"is-style-eyebrow"} -->
@@ -164,16 +164,16 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"full","className":"starter-band is-style-band-navy","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"align":"full","className":"starter-band is-style-band-navy","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"},"metadata":{"name":"Stats band"}} -->
 <div class="wp-block-group alignfull starter-band is-style-band-navy is-layout-constrained wp-block-group-is-layout-constrained" style="margin-top:0;margin-bottom:0">
 <!-- wp:group {"align":"wide","layout":{"type":"grid","minimumColumnWidth":"max(10rem, 22%)"},"metadata":{"name":"Stats"}} -->
 <div class="wp-block-group alignwide"><!-- wp:group {"className":"is-style-stat","layout":{"type":"constrained"},"metadata":{"name":"Stat"}} -->
 <div class="wp-block-group is-style-stat"><!-- wp:paragraph -->
-<p>24</p>
+<p>9</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>Shared blocks</p>
+<p>MCP tools</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -210,7 +210,7 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"full","className":"starter-band is-style-band-surface","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"align":"full","className":"starter-band is-style-band-surface","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"},"metadata":{"name":"Call to action band"}} -->
 <div class="wp-block-group alignfull starter-band is-style-band-surface is-layout-constrained wp-block-group-is-layout-constrained" style="margin-top:0;margin-bottom:0">
 <!-- wp:group {"tagName":"section","align":"wide","className":"is-style-panel","layout":{"type":"constrained"},"metadata":{"name":"Call to action"}} -->
 <section class="wp-block-group alignwide is-style-panel"><!-- wp:heading -->

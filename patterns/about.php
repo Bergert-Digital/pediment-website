@@ -23,16 +23,16 @@
 
 <!-- wp:paragraph --><p>Pediment moves that machinery into a single WordPress plugin, developed in one repository and updated in one place. A client site is reduced to what actually makes it that client's site: a standalone theme carrying brand tokens, content patterns and a seed manifest — no build step, no framework code, no copies of anything shared.</p><!-- /wp:paragraph -->
 
-<!-- wp:paragraph --><p>This site is the demonstration of that split. It was scaffolded from the client template, and every block, template and form on it is served by the plugin.</p><!-- /wp:paragraph --></div>
+<!-- wp:paragraph --><p>This site is the demonstration of that split. It was scaffolded from the client template, and every style, template and form on it is served by the plugin.</p><!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
 <!-- wp:quote {"className":"is-style-pull-quote"} -->
 <blockquote class="wp-block-quote is-style-pull-quote"><!-- wp:paragraph -->
-<p>Structure lives in git, content lives in the database — and the seeder arbitrates between the two instead of letting either overwrite the other.</p>
+<p>Structure lives in git, content lives in the database — the seeder creates what is missing and never overwrites what a person made.</p>
 <!-- /wp:paragraph --><cite>The Pediment seeding contract</cite></blockquote>
 <!-- /wp:quote -->
 
-<!-- wp:group {"align":"full","className":"starter-band is-style-band-surface","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"align":"full","className":"starter-band is-style-band-surface","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"},"metadata":{"name":"FAQ band"}} -->
 <div class="wp-block-group alignfull starter-band is-style-band-surface is-layout-constrained wp-block-group-is-layout-constrained" style="margin-top:0;margin-bottom:0">
 <!-- wp:group {"align":"wide","className":"pediment-section-head","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained","justifyContent":"left"},"metadata":{"name":"Section head"}} -->
 <div class="wp-block-group alignwide pediment-section-head" style="margin-bottom:var(--wp--preset--spacing--60)"><!-- wp:paragraph {"className":"is-style-eyebrow"} -->
@@ -46,7 +46,7 @@
 <!-- wp:group {"tagName":"section","layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"},"metadata":{"name":"FAQ"}} -->
 <section class="wp-block-group"><!-- wp:details {"className":"is-style-accordion"} -->
 <details class="wp-block-details is-style-accordion"><summary>Is Pediment a theme or a plugin?</summary><!-- wp:paragraph -->
-<p>A plugin. It ships the shared engine — blocks, templates, tokens, forms, seeding and AI authoring. Each site pairs it with its own standalone block theme.</p>
+<p>A plugin. It ships the shared engine — the design layer, templates, tokens, forms, seeding and the MCP tools for AI agents. Each site pairs it with its own standalone block theme.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
@@ -77,7 +77,7 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"full","className":"starter-band is-style-band-surface","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"align":"full","className":"starter-band is-style-band-surface","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"},"metadata":{"name":"Call to action band"}} -->
 <div class="wp-block-group alignfull starter-band is-style-band-surface is-layout-constrained wp-block-group-is-layout-constrained" style="margin-top:0;margin-bottom:0">
 <!-- wp:group {"tagName":"section","align":"wide","className":"is-style-panel","layout":{"type":"constrained"},"metadata":{"name":"Call to action"}} -->
 <section class="wp-block-group alignwide is-style-panel"><!-- wp:heading -->

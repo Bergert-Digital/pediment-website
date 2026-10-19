@@ -5,7 +5,7 @@ It is read by humans and by agents working in this repo; **nothing reads this fi
 
 ## What they do
 
-Presents the Pediment project: a WordPress plugin that ships a shared site engine (Gutenberg blocks, templates, patterns, design tokens, forms, seeding and AI-assisted authoring) paired with lean standalone client themes.
+Presents the Pediment project: a WordPress plugin that ships a shared site engine (a design layer of named block styles, templates, patterns, design tokens, forms, seeding and MCP tools for AI agents) paired with lean standalone client themes.
 
 ## Who for
 

@@ -8,7 +8,7 @@
  */
 // phpcs:ignoreFile -- block pattern content
 ?>
-<!-- wp:group {"align":"full","className":"starter-band is-style-band-surface","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"align":"full","className":"starter-band is-style-band-surface","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"},"metadata":{"name":"Hero band"}} -->
 <div class="wp-block-group alignfull starter-band is-style-band-surface is-layout-constrained wp-block-group-is-layout-constrained" style="margin-top:0;margin-bottom:0">
 <!-- wp:columns {"align":"wide","metadata":{"name":"Hero"}} -->
 <div class="wp-block-columns alignwide"><!-- wp:column {"width":"52%"} -->
@@ -21,7 +21,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"is-style-lead"} -->
-<p class="is-style-lead">Pediment is a WordPress plugin that ships the shared site machinery — blocks, templates, design tokens, forms, seeding and AI-assisted authoring — while each site keeps its own lean, standalone theme.</p>
+<p class="is-style-lead">Pediment is a WordPress plugin that ships the shared site machinery — a design layer of named block styles, templates, forms, seeding and MCP tools for AI agents — while each site keeps its own lean, standalone theme.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons -->
@@ -36,7 +36,7 @@
 
 <!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
-<li>24 shared Gutenberg blocks</li>
+<li>Core blocks with shared named styles</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -44,7 +44,7 @@
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li>AI-assisted page authoring</li>
+<li>AI agents build pages through MCP</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list --></div>
 <!-- /wp:column -->
@@ -54,11 +54,11 @@
 <div class="wp-block-cover is-light has-custom-content-position is-position-bottom-center is-style-media-card"><span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"className":"is-style-card","layout":{"type":"constrained"},"metadata":{"name":"Hero stat"}} -->
 <div class="wp-block-group is-style-card"><!-- wp:group {"className":"is-style-stat","layout":{"type":"constrained"},"metadata":{"name":"Stat"}} -->
 <div class="wp-block-group is-style-stat"><!-- wp:paragraph -->
-<p>24</p>
+<p>1</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>shared blocks, maintained once, updated everywhere</p>
+<p>plugin, maintained once, updated everywhere</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -78,7 +78,7 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"full","className":"starter-band is-style-band-surface","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"align":"full","className":"starter-band is-style-band-surface","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"},"metadata":{"name":"How it fits together band"}} -->
 <div class="wp-block-group alignfull starter-band is-style-band-surface is-layout-constrained wp-block-group-is-layout-constrained" style="margin-top:0;margin-bottom:0">
 <!-- wp:group {"align":"wide","className":"pediment-section-head","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained","justifyContent":"left"},"metadata":{"name":"Section head"}} -->
 <div class="wp-block-group alignwide pediment-section-head" style="margin-bottom:var(--wp--preset--spacing--60)"><!-- wp:paragraph {"className":"is-style-eyebrow"} -->
@@ -98,11 +98,11 @@
 <div class="wp-block-group is-style-card"><!-- wp:pediment/icon {"icon":"cube","className":"is-style-tile"} /-->
 
 <!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Shared blocks</h3>
+<h3 class="wp-block-heading">Shared design layer</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Heroes, feature grids, stats, steps, FAQs, testimonials, sliders and forms — server-rendered and sanitized, shipped by the plugin.</p>
+<p>Core blocks with named styles — cards, panels, stats, steps, accordions — so every page follows the same design rules, shipped by the plugin.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"pediment-card-link"} -->
@@ -130,11 +130,11 @@
 <div class="wp-block-group is-style-card"><!-- wp:pediment/icon {"icon":"sparkle","className":"is-style-tile"} /-->
 
 <!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">AI-assisted authoring</h3>
+<h3 class="wp-block-heading">AI agents through MCP</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>An AI editor composes pages from the same block schemas the plugin registers, so generated content is real, editable block markup.</p>
+<p>AI agents build and change pages through the plugin's MCP tools. The plugin checks every write against its content and design rules.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"pediment-card-link"} -->
@@ -145,7 +145,7 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"full","className":"starter-band is-style-band-elevated","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"align":"full","className":"starter-band is-style-band-elevated","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"},"metadata":{"name":"Workflow band"}} -->
 <div class="wp-block-group alignfull starter-band is-style-band-elevated is-layout-constrained wp-block-group-is-layout-constrained" style="margin-top:0;margin-bottom:0">
 <!-- wp:group {"align":"wide","className":"pediment-section-head","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained","justifyContent":"left"},"metadata":{"name":"Section head"}} -->
 <div class="wp-block-group alignwide pediment-section-head" style="margin-bottom:var(--wp--preset--spacing--60)"><!-- wp:paragraph {"className":"is-style-eyebrow"} -->
@@ -200,7 +200,7 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"full","className":"starter-band is-style-band-surface","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"align":"full","className":"starter-band is-style-band-surface","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"},"metadata":{"name":"Call to action band"}} -->
 <div class="wp-block-group alignfull starter-band is-style-band-surface is-layout-constrained wp-block-group-is-layout-constrained" style="margin-top:0;margin-bottom:0">
 <!-- wp:group {"tagName":"section","align":"wide","className":"is-style-panel","layout":{"type":"constrained"},"metadata":{"name":"Call to action"}} -->
 <section class="wp-block-group alignwide is-style-panel"><!-- wp:heading -->
