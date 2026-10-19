@@ -224,6 +224,15 @@ validator for WordPress 7.1 yet); check testimonials (`quote-card` grid), `logo-
 (`logos` row), the photo hero (`media-card` cover) and posts/templates in the preview; ask
 Jonas before converting the "Beispiel-Seite" (WordPress sample page).
 
+**Rehearsal done (2026-10-19)** on WordPress 7.1.3 (de_DE) with the production WXR: plugin
+3.8.0 → 4.3.0 changed no pixels; the wp-admin tab converted 9 posts (163 legacy blocks, 0
+failed, one batch); the 7.1.3 editor shows 0 invalid blocks in 701. Differences:
+`.context/differences.md` ("Production rehearsal"). The 9 posts include two drafts (Test2,
+Change Management) and the Beispiel-Seite; the preview converts all posts in a batch, so
+excluding one means converting the others by id (MCP `pediment-convert-legacy` with `ids`).
+The production plugin folder is `pediment`, and the release zip's folder is `pediment` too, so
+"Replace current with uploaded" works if the Update link does not.
+
 ## Production runbook (after Jonas's go; Jonas or an agent in wp-admin)
 
 Production has no shell and no WP-CLI. Every step is in wp-admin.
