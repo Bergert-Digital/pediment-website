@@ -3,7 +3,8 @@
   "phpVersion": "8.1",
   "themes": [],
   "plugins": [
-    "https://github.com/Bergert-Digital/pediment/releases/download/v3.3.0/pediment-plugin.zip"
+    "https://github.com/Bergert-Digital/pediment/releases/download/v4.3.0/pediment-plugin.zip",
+    "https://downloads.wordpress.org/plugin/mcp-adapter.0.7.0.zip"
   ],
   "config": {
     "WP_DEBUG": true,
