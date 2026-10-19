@@ -218,6 +218,11 @@ A public read of production (no login) changes the production part of this plan:
 Before production: Jonas exports production (Tools → Export → All content, WXR) into
 `.context/`; the agent imports it into the 7.1.3 rehearsal env, converts it there, and compares
 it with screenshots of the live site.
+In that rehearsal (thread 005): open every converted page and post in the block editor and
+report each "This block contains unexpected or invalid content" to the pediment thread (no
+validator for WordPress 7.1 yet); check testimonials (`quote-card` grid), `logo-cloud`
+(`logos` row), the photo hero (`media-card` cover) and posts/templates in the preview; ask
+Jonas before converting the "Beispiel-Seite" (WordPress sample page).
 
 ## Production runbook (after Jonas's go; Jonas or an agent in wp-admin)
 
