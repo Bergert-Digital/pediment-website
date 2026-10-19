@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.3.0](https://github.com/Bergert-Digital/pediment-website/compare/v1.2.1...v1.3.0) (2026-10-19)
+
+
+### Features
+
+* **content:** describe Pediment 4 on the demo pages ([35c327a](https://github.com/Bergert-Digital/pediment-website/commit/35c327a8f0d9fb4c9892ae1c9176c2ebac27e944))
+* update to Pediment 4.3.0 and convert legacy blocks ([3bf2aee](https://github.com/Bergert-Digital/pediment-website/commit/3bf2aee17c774a1a0cec8c6666fb9db9f4b28f93))
+* update to Pediment 4.3.0 and convert legacy blocks ([5251e14](https://github.com/Bergert-Digital/pediment-website/commit/5251e148ec9220dfcd4c8c0ccbaee2514db01c35))
+
+
+### Bug Fixes
+
+* **theme:** show four converted steps in one row on wide screens ([89d83ef](https://github.com/Bergert-Digital/pediment-website/commit/89d83ef9b82d57e1f816b6f8d4e7f28732b3da72))
+
+
+### Refactors
+
+* **patterns:** convert legacy Pediment blocks to core blocks ([2a2fa98](https://github.com/Bergert-Digital/pediment-website/commit/2a2fa98c96f139f5c6634c63105308eab1281d23))
+
 ## [1.2.1](https://github.com/Bergert-Digital/pediment-website/compare/v1.2.0...v1.2.1) (2026-08-16)
 
 
