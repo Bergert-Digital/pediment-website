@@ -13,9 +13,9 @@ run_mode = "nonconcurrent"
 # env never blocks archival. Avoids `wp-env destroy` (interactive).
 archive = "npm run env:stop || true"
 
-# Boot wp-env (activates the theme + pediment-plugin, sets permalinks and
-# the site title), apply the seed manifest (idempotent: existing pages are
-# protected, missing structure is created), then hold the foreground by
+# Boot wp-env (activates the theme, pediment-plugin and mcp-adapter, sets
+# permalinks and the site title), apply the seed manifest (bootstrap-only: it
+# creates what is missing and never changes an existing page), then hold the foreground by
 # tailing WordPress's debug.log — PHP notices surface here live. Stopping
 # the run leaves the containers serving http://localhost:8888; archive (or
 # `npm run env:stop`) shuts them down.
