@@ -2,8 +2,8 @@
 /**
  * Pediment Website theme bootstrap.
  *
- * A Pediment client theme has almost no PHP: blocks, templates, tokens, seeding
- * and the AI editor all ship in the Pediment plugin. The one thing that must
+ * A Pediment client theme has almost no PHP: blocks, templates, tokens and
+ * seeding all ship in the Pediment plugin. The one thing that must
  * live in the theme is its own update path — WordPress only auto-loads
  * functions.php for a theme, so this is the sole place to register it.
  *
