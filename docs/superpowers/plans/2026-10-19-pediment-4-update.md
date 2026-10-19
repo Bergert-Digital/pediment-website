@@ -233,26 +233,36 @@ excluding one means converting the others by id (MCP `pediment-convert-legacy` w
 The production plugin folder is `pediment`, and the release zip's folder is `pediment` too, so
 "Replace current with uploaded" works if the Update link does not.
 
-## Production runbook (after Jonas's go; Jonas or an agent in wp-admin)
+## Production runbook (Jonas runs it in wp-admin, after the theme release)
 
-Production has no shell and no WP-CLI. Every step is in wp-admin.
+Production has no shell and no WP-CLI. Every step is in wp-admin. Rehearsed on 2026-10-19 on
+WordPress 7.1.3 with the production export. Decision: the Beispiel-Seite (ID 2) is **not**
+converted.
 
-0. **Backup.** Take a host backup or a full export. Note the theme and plugin versions
-   (Plugins, Appearance → Themes). Check revisions are on (the convert preview says so).
-1. **Update the plugin.** Plugins → update Pediment to 4.3.0 (or upload
-   `pediment-plugin.zip`). Load the home page, then one wp-admin page (the 4.x cleanup runs).
-   Expect: pages look the same (legacy blocks still render).
-2. **(D3) Install MCP Adapter 0.7.0** if the MCP tools should work on production.
-3. **Update the theme** to the new release (Appearance → Themes, update from GitHub through
-   `ThemeUpdater`; or upload `pediment-website.zip`). This brings the converted patterns and
-   any Task 4 styles. The styles must be live before step 4.
-4. **Preview.** Settings → Pediment Theme → Convert legacy blocks. Compare the preview list
-   with dev (4 pages expected; production may differ, the preview is the inventory). Stop if
-   the preview reports revisions disabled or `< 2`, or any `failed`.
-5. **Convert** the batch. Keep the result table (Restore links).
-6. **Check** each page at 375, 768, 1440 px against the rehearsal screenshots of the imported
-   production content. A bad page: use its Restore link.
-7. **Seeding tab:** do not press Apply plan (the manifest does not match production; see
-   Findings).
-8. **Copy (D1):** only after Jonas decides which content is canonical; change pages with
-   `pediment-write-page` (application password over HTTPS) or in the editor.
+0. **Backup.** Take a host backup. Note the versions (Plugins, Appearance → Themes).
+1. **Update the plugin** to 4.3.0: Plugins → Update. If no update shows, upload
+   `pediment-plugin.zip` from the v4.3.0 release (Plugins → Add New → Upload, "Replace current
+   with uploaded"; the zip folder is `pediment`, like the installed one). Then load the home
+   page and one wp-admin page. Expect: the site looks the same.
+2. **Install MCP Adapter 0.7.0** (D3): Plugins → Add New → search "MCP Adapter", or upload
+   `https://downloads.wordpress.org/plugin/mcp-adapter.0.7.0.zip`. Activate it.
+3. **Update the theme** to the new release: Appearance → Themes → Pediment Website → update
+   (or upload `pediment-website.zip`). Expect: the site looks the same (the legacy blocks still
+   render).
+4. **Preview without the Beispiel-Seite.** Open
+   `https://pedimenttheme.com/wp-admin/options-general.php?page=pediment-theme&tab=convert&after=2`
+   (`after=2` starts the list after post ID 2, the Beispiel-Seite). Expect **8 posts, 126
+   legacy blocks, 0 failed**: Home, How it works, Contact us, Blog, Why We Built Pediment,
+   Features, Test2 (draft), Change Management (draft). Stop if the Beispiel-Seite is in the
+   list, if anything says `failed`, or if it says revisions are off or fewer than 2.
+5. **Convert 8 posts.** Keep the result page open: each row has a Restore link.
+6. **Check** Home, Features, How it works, Contact us, Blog and the post on a phone and a wide
+   screen. Expected look: `.context/screens/p-sbs/` (live left, converted right). Expected
+   changes: `.context/differences.md` ("Production rehearsal"). A bad page: its Restore link.
+7. **Seeding tab:** do not press Apply plan. No production page has a seed key, and the
+   manifest does not match production; Apply plan would create duplicate pages.
+8. **Later, separate step (D1):** replace the AI-chat text on production in the editor or with
+   `pediment-write-page`.
+
+The Beispiel-Seite keeps its legacy blocks. It renders on 4.x, but Pediment 5.0 deletes the
+legacy blocks: before 5.0, delete it, unpublish it, or convert it (the tab without `after`).
