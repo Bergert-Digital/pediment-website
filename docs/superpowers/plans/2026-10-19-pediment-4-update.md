@@ -195,12 +195,36 @@ navy).
 
 ---
 
+## Findings during execution (2026-10-19)
+
+Jonas's decisions: D1 update the copy, D2 four steps in one row on wide screens, D3 install
+the MCP adapter. Production URL: https://pedimenttheme.com/.
+
+A public read of production (no login) changes the production part of this plan:
+
+- Production runs **WordPress 7.1.3** and a plugin whose assets match **3.5.0–3.8.0**; dev
+  rehearsed on 6.9 + 3.3.0. A second rehearsal on 7.1.3 + 3.8.0 + theme 1.2.1 is set up in
+  `.wp-env.override.json` (gitignored).
+- **Production content is not the pattern content.** Production is an AI-builder marketing site
+  (Home, Features, How it works, Contact us, Blog, a blog post, a "Beispiel-Seite"). It uses
+  legacy blocks dev never converted: `testimonial-grid`, `logo-cloud`, a stat-card hero with a
+  photo, `prose` in a post. It still advertises the AI chat sidebar that 4.x removed.
+- The manifest (home, about, features, contact) does not match production. **Never press
+  "Apply plan" on production:** it would create an About page (production has none), and a
+  Contact page too unless "Contact us" carries the seed key `contact`.
+- D1 as built (patterns + MCP write) would replace the whole live site with the demo pages. It
+  is **on hold** for production until Jonas decides which content is canonical.
+
+Before production: Jonas exports production (Tools → Export → All content, WXR) into
+`.context/`; the agent imports it into the 7.1.3 rehearsal env, converts it there, and compares
+it with screenshots of the live site.
+
 ## Production runbook (after Jonas's go; Jonas or an agent in wp-admin)
 
 Production has no shell and no WP-CLI. Every step is in wp-admin.
 
 0. **Backup.** Take a host backup or a full export. Note the theme and plugin versions
-   (Plugins, Appearance → Themes).
+   (Plugins, Appearance → Themes). Check revisions are on (the convert preview says so).
 1. **Update the plugin.** Plugins → update Pediment to 4.3.0 (or upload
    `pediment-plugin.zip`). Load the home page, then one wp-admin page (the 4.x cleanup runs).
    Expect: pages look the same (legacy blocks still render).
@@ -212,6 +236,9 @@ Production has no shell and no WP-CLI. Every step is in wp-admin.
    with dev (4 pages expected; production may differ, the preview is the inventory). Stop if
    the preview reports revisions disabled or `< 2`, or any `failed`.
 5. **Convert** the batch. Keep the result table (Restore links).
-6. **Check** each page at 375, 768, 1440 px against `.context/screens/new/`. A bad page:
-   use its Restore link.
-7. **Seeding tab → Preview plan.** Expect `0 to write`. Do not apply anything else.
+6. **Check** each page at 375, 768, 1440 px against the rehearsal screenshots of the imported
+   production content. A bad page: use its Restore link.
+7. **Seeding tab:** do not press Apply plan (the manifest does not match production; see
+   Findings).
+8. **Copy (D1):** only after Jonas decides which content is canonical; change pages with
+   `pediment-write-page` (application password over HTTPS) or in the editor.
